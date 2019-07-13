@@ -18,19 +18,23 @@ class App extends Component {
   // DURATION CHANGES
 
   decreaseBreakDuration = () => {
-
+    // subtract 60 from this.state.breakDuration
+    alert('working')
   }
 
   increaseBreakDuration = () => {
-
+    // add 60 to this.state.breakDuration
+    alert('working')
   }
 
   decreaseSessionDuration = () => {
-
+    // subtract 60 from this.state.sessionDuration
+    alert('working')
   }
 
   increaseSessionDuration = () => {
-
+    // add 60 to this.state.sessionDuration
+    alert('working')
   }
 
   // PLAY, PAUSE, RESTART BUTTONS
@@ -58,6 +62,7 @@ class App extends Component {
   render() {
     return (
       <Timer
+      
         sessionDuration={this.state.sessionDuration}
         breakDuration={this.state.breakDuration}
 

@@ -6,3 +6,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.btn {
+  color: #868686;
+  margin: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.time-remaining {
+  font-size: 4rem;
+  font-weight: bold;
+}
