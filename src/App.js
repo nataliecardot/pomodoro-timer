@@ -8,8 +8,8 @@ class App extends Component {
     this.state = {
       sessionDuration: 1500,
       breakDuration: 300,
-      timerOn: false,
-
+      timeRemaining: 1500,
+      timerOn: false
     };
   }
 
@@ -60,12 +60,14 @@ class App extends Component {
       <Timer
         sessionDuration={this.state.sessionDuration}
         breakDuration={this.state.breakDuration}
-        timerOn={this.state.timerOn}
 
         decreaseBreakDuration={this.decreaseBreakDuration}
         increaseBreakDuration={this.increaseBreakDuration}
         decreaseSessionDuration={this.decreaseSessionDuration}
         increaseSessionDuration={this.increaseSessionDuration}
+
+        timeRemaining={this.state.timeRemaining}
+        timerOn={this.state.timerOn}
 
         startTimer={this.startTimer}
         pauseTimer={this.pauseTimer}
