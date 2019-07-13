@@ -51,10 +51,14 @@ class App extends Component {
   render() {
     return (
       <Timer
-        decreaseBreakDuration={this.props.decreaseBreakDuration}
-        increaseBreakDuration={this.props.increaseBreakDuration}
-        decreaseSessionDuration={this.props.decreaseSessionDuration}
-        increaseSessionDuration={this.props.increaseSessionDuration}
+        sessionDuration={this.state.sessionDuration}
+        breakDuration={this.state.breakDuration}
+        countingDown={this.state.countingDown}
+
+        decreaseBreakDuration={this.decreaseBreakDuration}
+        increaseBreakDuration={this.increaseBreakDuration}
+        decreaseSessionDuration={this.decreaseSessionDuration}
+        increaseSessionDuration={this.increaseSessionDuration}
 
         handlePlayBtnClick={this.handlePlayBtnClick}
         handlePauseBtnClick={this.handlePauseBtnClick}
