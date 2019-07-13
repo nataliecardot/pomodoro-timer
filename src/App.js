@@ -35,16 +35,23 @@ class App extends Component {
 
   // PLAY, PAUSE, RESTART BUTTONS
 
-  handlePlayBtnClick = () => {
+  startTimer = () => {
+    this.setState({
+      countingDown: true
+    });
 
   }
 
-  handlePauseBtnClick = () => {
-
+  pauseTimer = () => {
+    this.setState({
+      countingDown: false
+    });
   }
 
-  handleRestartBtnClick = () => {
-
+  resetTimer = () => {
+    this.setState({
+      countingDown: true
+    });
   }
 
 
@@ -60,9 +67,9 @@ class App extends Component {
         decreaseSessionDuration={this.decreaseSessionDuration}
         increaseSessionDuration={this.increaseSessionDuration}
 
-        handlePlayBtnClick={this.handlePlayBtnClick}
-        handlePauseBtnClick={this.handlePauseBtnClick}
-        handleRestartBtnClick={this.handleRestartBtnClick}
+        startTimer={this.startTimer}
+        pauseTimer={this.pauseTimer}
+        resetTimer={this.resetTimer}
       />
     );
   };

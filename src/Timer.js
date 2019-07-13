@@ -14,7 +14,7 @@ const Timer = (props) => (
   <div></div>
 
   {/* PLAY, PAUSE, RESTART BUTTONS */}
-
+  <button onClick={this.resetTimer}>reset</button>
 
 </>
 
