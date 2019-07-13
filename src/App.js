@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       sessionDuration: 1500,
       breakDuration: 300,
-      countingDown: false,
+      timerOn: false,
 
     };
   }
@@ -37,20 +37,20 @@ class App extends Component {
 
   startTimer = () => {
     this.setState({
-      countingDown: true
+      timerOn: true
     });
 
   }
 
   pauseTimer = () => {
     this.setState({
-      countingDown: false
+      timerOn: false
     });
   }
 
   resetTimer = () => {
     this.setState({
-      countingDown: true
+      timerOn: true
     });
   }
 
@@ -60,7 +60,7 @@ class App extends Component {
       <Timer
         sessionDuration={this.state.sessionDuration}
         breakDuration={this.state.breakDuration}
-        countingDown={this.state.countingDown}
+        timerOn={this.state.timerOn}
 
         decreaseBreakDuration={this.decreaseBreakDuration}
         increaseBreakDuration={this.increaseBreakDuration}
