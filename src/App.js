@@ -9,7 +9,8 @@ class App extends Component {
       sessionDuration: 1500,
       breakDuration: 300,
       timeRemaining: 1500,
-      timerOn: false
+      timerOn: false,
+      sessionNumber: 0
     };
   }
 

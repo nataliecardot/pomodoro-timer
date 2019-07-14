@@ -79,3 +79,8 @@ body {
   font-weight: bold;
   margin: 2rem 0;
 }
+
+.session-checkbox {
+  margin: 30px 5px;
+  color: red;
+}
