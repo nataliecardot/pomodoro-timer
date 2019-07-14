@@ -17,20 +17,17 @@ body {
 }
 
 .duration-controls {
+  /* To override display flex direction column of parent */
   display: flex;
 }
 
 .duration-change-btn {
-  /* Needed for property top to apply. Means positioned relative to its normal position */
-  position: relative;
-  /* To align next to text */
-  top: 30px;
   margin: 0 15px;
-
 }
 
 /* Session and break duration text */
 .duration {
+  margin: 0;
   font-size: 2rem;
   font-weight: bold;
 }
