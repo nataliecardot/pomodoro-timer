@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       sessionDuration: 1500,
       breakDuration: 300,
-      timeRemaining: 1500,
+      timeRemaining: 1, // TODO: change back to 1500 when testing done
       timerOn: false,
       sessionNumber: 0
     };
@@ -54,6 +54,18 @@ class App extends Component {
     });
   }
 
+  manageSession = () => {
+    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed timeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
+    this.time = setInterval(() => {
+      this.setState({
+        timeRemaining: this.state.timeRemaining - 1
+      });
+      if (this.state.timeRemaining === 0) {
+        clearInterval(this.time);
+      }
+    }, 1000);
+  }
+
   // PLAY, PAUSE, RESTART BUTTONS
 
   startTimer = () => {
@@ -61,10 +73,7 @@ class App extends Component {
       timerOn: true
     });
 
-    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed timeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
-    this.time = setInterval(() => this.setState({
-      timeRemaining: this.state.timeRemaining - 1
-    }), 1000);
+    this.manageSession();
   }
 
   pauseTimer = () => {
