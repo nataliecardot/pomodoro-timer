@@ -8,9 +8,12 @@ body {
 }
 
 .timer {
+  /* Without this, component rendered to top of screen, blank space after. Prevents full page vertical centering */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .duration-controls {
