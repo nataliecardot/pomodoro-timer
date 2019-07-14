@@ -35,14 +35,14 @@ const Timer = (props) => (
   {/* TIME REMAINING */}
   <p className="time-remaining">{props.timeRemaining}</p>
 
-  {/* RESTART, PLAY, PAUSE BUTTONS */}
+  {/* PLAY, PAUSE, RESTART BUTTONS */}
   <div className="bottom-btns">
-
-    <FontAwesomeIcon icon={faUndo} onClick={props.resetTimer} className="btn bottom-btn" size="3x" />
 
     <FontAwesomeIcon icon={faPlay} onClick={props.startTimer} className="btn bottom-btn" size="3x" />
 
     <FontAwesomeIcon icon={faPause} onClick={props.pauseTimer} className="btn bottom-btn" size="3x" />
+
+    <FontAwesomeIcon icon={faUndo} onClick={props.resetTimer} className="btn bottom-btn" size="3x" />
 
   </div>
 

@@ -53,6 +53,10 @@ class App extends Component {
       timerOn: true
     });
 
+    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed timeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
+    this.time = setInterval(() => this.setState({
+      timeRemaining: this.state.timeRemaining - 1
+    }), 1000);
   }
 
   pauseTimer = () => {
@@ -67,6 +71,8 @@ class App extends Component {
       timerOn: false,
       timeRemaining: this.state.sessionDuration
     });
+
+    clearInterval(this.time);
 
   }
 
