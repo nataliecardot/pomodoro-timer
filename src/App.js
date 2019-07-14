@@ -18,28 +18,35 @@ class App extends Component {
   // DURATION CHANGES
 
   decreaseBreakDuration = () => {
-    this.setState({
-      breakDuration: this.state.breakDuration - 60
-    });
+    // Conditional statement prevents decrease when session is at 1 minute
+    if (this.state.breakDuration === 60) {
+      return undefined;
+    } else {
+      this.setState({
+        breakDuration: this.state.breakDuration - 60
+      });
+    }
   }
 
   increaseBreakDuration = () => {
-    // add 60 to this.state.breakDuration
     this.setState({
       breakDuration: this.state.breakDuration + 60
     });
   }
 
   decreaseSessionDuration = () => {
-    // subtract 60 from this.state.sessionDuration
-    this.setState({
-      sessionDuration: this.state.sessionDuration - 60,
-      timeRemaining: this.state.timeRemaining - 60
-    });
+    // Conditional statement prevents decrease when session is at 5 minutes
+    if (this.state.sessionDuration === 300) {
+      return undefined;
+    } else {
+      this.setState({
+        sessionDuration: this.state.sessionDuration - 60,
+        timeRemaining: this.state.timeRemaining - 60
+      });
+    }
   }
 
   increaseSessionDuration = () => {
-    // add 60 to this.state.sessionDuration
     this.setState({
       sessionDuration: this.state.sessionDuration + 60,
       timeRemaining: this.state.timeRemaining + 60
