@@ -13,22 +13,37 @@ const Timer = (props) => (
   <div className="duration-controls">
 
     {/* BREAK LENGTH CONTROL */}
-    <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn duration-change-btn" size="3x" />
+    <div className="duration-control-group-with-label">
 
-    <p className="duration">{props.breakDuration / 60}</p>
+      <p className="duration-label">Break</p>
 
-    <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseBreakDuration} className="btn duration-change-btn" size="3x" />
+      <div className="duration-control-group-without-label">
+        <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn duration-change-btn" size="3x" />
+
+        <p className="duration">{props.breakDuration / 60}</p>
+
+        <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseBreakDuration} className="btn duration-change-btn" size="3x" />
+      </div>
+
+    </div>
 
     {/* Just for adding space between break/session duration controls */}
     <span className="between-duration-controls" />
 
     {/* SESSION LENGTH CONTROL */}
+    <div className="duration-control-group-with-label">
 
-    <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn duration-change-btn" size="3x" />
+      <p className="duration-label">Session</p>
 
-    <p className="duration">{props.sessionDuration / 60}</p>
+      <div className="duration-control-group-without-label">
+      <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn duration-change-btn" size="3x" />
 
-    <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseSessionDuration} className="btn duration-change-btn" size="3x" />
+      <p className="duration">{props.sessionDuration / 60}</p>
+
+      <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseSessionDuration} className="btn duration-change-btn" size="3x" />
+      </div>
+
+    </div>
 
   </div>
 
