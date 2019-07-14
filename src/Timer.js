@@ -15,7 +15,7 @@ const Timer = (props) => (
     {/* BREAK LENGTH CONTROL */}
     <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn duration-change-btn" size="3x" />
 
-    <p className="duration">{props.breakDuration}</p>
+    <p className="duration">{props.breakDuration / 60}</p>
 
     <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseBreakDuration} className="btn duration-change-btn" size="3x" />
 
@@ -26,7 +26,7 @@ const Timer = (props) => (
 
     <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn duration-change-btn" size="3x" />
 
-    <p className="duration">{props.sessionDuration}</p>
+    <p className="duration">{props.sessionDuration / 60}</p>
 
     <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseSessionDuration} className="btn duration-change-btn" size="3x" />
 
