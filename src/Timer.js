@@ -5,6 +5,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
+const TimeFormat = require('hh-mm-ss');
 
 const Timer = (props) => (
 
@@ -48,7 +49,7 @@ const Timer = (props) => (
   </div>
 
   {/* TIME REMAINING */}
-  <p className="time-remaining">{props.timeRemaining}</p>
+  <p className="time-remaining">{TimeFormat.fromS(props.timeRemaining)}</p>
 
   {/* PLAY, PAUSE, RESTART BUTTONS */}
   <div className="bottom-btns">

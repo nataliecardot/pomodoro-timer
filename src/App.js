@@ -73,7 +73,6 @@ class App extends Component {
     this.setState({
       timerOn: false
     });
-
   }
 
   resetTimer = () => {
@@ -85,11 +84,9 @@ class App extends Component {
     });
   }
 
-
   render() {
     return (
       <Timer
-
         breakDuration={this.state.breakDuration}
         sessionDuration={this.state.sessionDuration}
 
