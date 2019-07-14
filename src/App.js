@@ -60,6 +60,8 @@ class App extends Component {
   }
 
   pauseTimer = () => {
+    clearInterval(this.time);
+
     this.setState({
       timerOn: false
     });
@@ -67,13 +69,11 @@ class App extends Component {
   }
 
   resetTimer = () => {
+    clearInterval(this.time);
     this.setState({
       timerOn: false,
       timeRemaining: this.state.sessionDuration
     });
-
-    clearInterval(this.time);
-
   }
 
 
