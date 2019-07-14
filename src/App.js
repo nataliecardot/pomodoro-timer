@@ -62,8 +62,22 @@ class App extends Component {
       });
       if (this.state.timeRemaining === 0) {
         clearInterval(this.time);
+        this.setState({
+          timerOn: false,
+          sessionNumber: this.state.sessionNumber + 1
+        });
+        this.handleSessionComplete()
       }
     }, 1000);
+  }
+
+  handleSessionComplete = () => {
+    // Figure out how to display check icon and hide circle icon
+    // If session number is 4, congratulate user; done with pomodoro cycle.
+    // Otherwise, set time remaining to break duration, start another setInterval, set stimerOn state back to true... at the end, trigger startTimer?
+    if (this.state.sessionNumber === 4) {
+      alert('Pomodoro cycle complete!');
+    }
   }
 
   // PLAY, PAUSE, RESTART BUTTONS
