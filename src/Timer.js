@@ -8,31 +8,27 @@ import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 const Timer = (props) => (
 
-<>
+<div className="timer">
 
-  {/* BREAK LENGTH CONTROL */}
-  <div>
+  <div className="duration-controls">
 
-  <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn" size="3x">
-    <p>{props.breakDuration}</p>
-  </FontAwesomeIcon>
+    {/* BREAK LENGTH CONTROL */}
+    <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn duration-change-btn" size="3x" />
 
-  <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseBreakDuration} className="btn" size="3x">
-    <p>{props.breakDuration}</p>
-  </FontAwesomeIcon>
+    <p className="duration">{props.breakDuration}</p>
 
-  </div>
+    <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseBreakDuration} className="btn duration-change-btn" size="3x" />
 
-  {/* SESSION LENGTH CONTROL */}
-  <div>
+    {/* Just for adding space between break/session duration controls */}
+    <span className="between-duration-controls" />
 
-  <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn" size="3x">
-    <p>{props.sessionDuration}</p>
-  </FontAwesomeIcon>
+    {/* SESSION LENGTH CONTROL */}
 
-  <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseSessionDuration} className="btn" size="3x">
-    <p>{props.sessionDuration}</p>
-  </FontAwesomeIcon>
+    <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn duration-change-btn" size="3x" />
+
+    <p className="duration">{props.sessionDuration}</p>
+
+    <FontAwesomeIcon icon={faArrowDown} onClick={props.decreaseSessionDuration} className="btn duration-change-btn" size="3x" />
 
   </div>
 
@@ -40,13 +36,17 @@ const Timer = (props) => (
   <p className="time-remaining">{props.timeRemaining}</p>
 
   {/* RESTART, PLAY, PAUSE BUTTONS */}
-  <FontAwesomeIcon icon={faUndo} onClick={props.resetTimer} className="btn" size="3x" />
+  <div className="bottom-btns">
 
-  <FontAwesomeIcon icon={faPlay} onClick={props.startTimer} className="btn" size="3x" />
+    <FontAwesomeIcon icon={faUndo} onClick={props.resetTimer} className="btn bottom-btn" size="3x" />
 
-  <FontAwesomeIcon icon={faPause} onClick={props.pauseTimer} className="btn" size="3x" />
+    <FontAwesomeIcon icon={faPlay} onClick={props.startTimer} className="btn bottom-btn" size="3x" />
 
-</>
+    <FontAwesomeIcon icon={faPause} onClick={props.pauseTimer} className="btn bottom-btn" size="3x" />
+
+  </div>
+
+</div>
 
 );
 

@@ -19,22 +19,40 @@ class App extends Component {
 
   decreaseBreakDuration = () => {
     // subtract 60 from this.state.breakDuration
-    alert('working')
+    this.setState(prevState => {
+      return {
+        breakDuration: prevState.breakDuration - 60
+      }
+    });
   }
 
   increaseBreakDuration = () => {
     // add 60 to this.state.breakDuration
-    alert('working')
+    this.setState(prevState => {
+      return {
+        breakDuration: prevState.breakDuration + 60
+      }
+    });
   }
 
   decreaseSessionDuration = () => {
     // subtract 60 from this.state.sessionDuration
-    alert('working')
+    this.setState(prevState => {
+      return {
+        sessionDuration: prevState.sessionDuration - 60,
+        timeRemaining: prevState.timeRemaining - 60
+      }
+    });
   }
 
   increaseSessionDuration = () => {
     // add 60 to this.state.sessionDuration
-    alert('working')
+    this.setState(prevState => {
+      return {
+        sessionDuration: prevState.sessionDuration + 60,
+        timeRemaining: prevState.timeRemaining + 60
+      }
+    });
   }
 
   // PLAY, PAUSE, RESTART BUTTONS
@@ -50,21 +68,24 @@ class App extends Component {
     this.setState({
       timerOn: false
     });
+
   }
 
   resetTimer = () => {
     this.setState({
-      timerOn: true
+      timerOn: false,
+      timeRemaining: this.state.sessionDuration
     });
+
   }
 
 
   render() {
     return (
       <Timer
-      
-        sessionDuration={this.state.sessionDuration}
+
         breakDuration={this.state.breakDuration}
+        sessionDuration={this.state.sessionDuration}
 
         decreaseBreakDuration={this.decreaseBreakDuration}
         increaseBreakDuration={this.increaseBreakDuration}

@@ -7,16 +7,56 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.btn {
-  color: #868686;
-  margin: 10px;
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.duration-controls {
+  display: flex;
+}
+
+.duration-change-btn {
+  /* Needed for property top to apply. Means positioned relative to its normal position */
+  position: relative;
+  /* To align next to text */
+  top: 30px;
+  margin: 0 15px;
+
+}
+
+/* Session and break duration text */
+.duration {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.between-duration-controls {
+  margin: 0 20px;
+}
+
+/* All buttons */
+.btn {
+  color: #868686;
+}
+
+/* All buttons */
 .btn:hover {
   cursor: pointer;
 }
 
+.bottom-btns {
+  /* To override display flex direction column of parent */
+  display: flex;
+}
+
+.bottom-btn {
+  margin: 15px;
+}
+
 .time-remaining {
-  font-size: 4rem;
+  font-size: 10rem;
   font-weight: bold;
+  margin: 2rem 0;
 }
