@@ -60,6 +60,7 @@ class App extends Component {
   }
 
   pauseTimer = () => {
+    // Stops setInterval's calling its (setState) callback every 1000 ms
     clearInterval(this.time);
 
     this.setState({
@@ -69,6 +70,7 @@ class App extends Component {
   }
 
   resetTimer = () => {
+  // Stops setInterval's calling its (setState) callback every 1000 ms
     clearInterval(this.time);
     this.setState({
       timerOn: false,
