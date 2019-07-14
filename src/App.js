@@ -80,7 +80,9 @@ class App extends Component {
     clearInterval(this.time);
     this.setState({
       timerOn: false,
-      timeRemaining: this.state.sessionDuration
+      sessionDuration: 1500,
+      breakDuration: 300,
+      timeRemaining: 1500
     });
   }
 
