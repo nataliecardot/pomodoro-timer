@@ -18,7 +18,7 @@ class App extends Component {
   // DURATION CHANGES
 
   decreaseBreakDuration = () => {
-    // Conditional statement prevents decrease when session is at 1 minute
+    // Conditional statement prevents decrease when break is at 1 minute
     if (this.state.breakDuration === 60) {
       return undefined;
     } else {
