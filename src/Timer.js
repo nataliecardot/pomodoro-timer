@@ -38,11 +38,33 @@ const Timer = (props) => (
   {/* PLAY, PAUSE, RESTART BUTTONS */}
   <div className="bottom-btns">
 
-    <FontAwesomeIcon icon={faPlay} onClick={props.startTimer} className="btn bottom-btn" size="3x" />
+    <div className={props.timerOn ? 'hidden' : ''}>
+      <FontAwesomeIcon
+        role="button"
+        onClick={props.startTimer}
+        icon={faPlay}
+        className="btn bottom-btn"
+        size="3x"
+      />
+    </div>
 
-    <FontAwesomeIcon icon={faPause} onClick={props.pauseTimer} className="btn bottom-btn" size="3x" />
+    <div className={props.timerOn === false ? 'hidden' : ''}>
+      <FontAwesomeIcon
+        role="button"
+        onClick={props.pauseTimer}
+        icon={faPause}
+        className="btn bottom-btn"
+        size="3x"
+      />
+    </div>
 
-    <FontAwesomeIcon icon={faUndo} onClick={props.resetTimer} className="btn bottom-btn" size="3x" />
+    <FontAwesomeIcon
+      role="button"
+      onClick={props.resetTimer}
+      icon={faUndo}
+      className="btn bottom-btn"
+      size="3x"
+    />
 
   </div>
 

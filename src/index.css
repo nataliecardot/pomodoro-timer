@@ -46,6 +46,10 @@ body {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 .bottom-btns {
   /* To override display flex direction column of parent */
   display: flex;
