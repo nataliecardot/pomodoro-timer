@@ -16,7 +16,7 @@ const Timer = (props) => (
     {/* BREAK LENGTH CONTROL */}
     <div className="duration-control-group-with-label">
 
-      <p className="duration-label">Break</p>
+      <p className="duration-label">Break<br />Length</p>
 
       <div className="duration-control-group-without-label">
         <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseBreakDuration} className="btn duration-change-btn" size="3x" />
@@ -34,7 +34,7 @@ const Timer = (props) => (
     {/* SESSION LENGTH CONTROL */}
     <div className="duration-control-group-with-label">
 
-      <p className="duration-label">Session</p>
+      <p className="duration-label">Session<br />Length</p>
 
       <div className="duration-control-group-without-label">
       <FontAwesomeIcon icon={faArrowUp} onClick={props.increaseSessionDuration} className="btn duration-change-btn" size="3x" />
