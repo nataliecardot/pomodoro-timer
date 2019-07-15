@@ -8,7 +8,7 @@ import React from 'react';
 import PomodoroIcons from './PomodoroIcons';
 const TimeFormat = require('hh-mm-ss');
 
-const Timer = (props) => (
+const Timer = props => (
 
 <div className="timer">
 
@@ -108,7 +108,7 @@ const Timer = (props) => (
 
   </div> {/* End bottom-btns */}
 
-  <PomodoroIcons />
+  <PomodoroIcons sessionNumber={props.sessionNumber} />
 </div>
 
 );

@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import Timer from './Timer';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      sessionDuration: 5, // TODO: change back to 1500 when testing done
-      breakDuration: 3, // TODO: change back to 300 when testing done
-      sessionTimeRemaining: 5, // TODO: change back to 1500 when testing done
-      breakTimeRemaining: 3, // TODO: change back to 300 when testing done
-      isSession: true,
-      timerOn: false,
-      sessionNumber: 0
-    };
+  // Class property syntax allows you to remove constructor when just being used to initialize state
+  state = {
+    sessionDuration: 5, // TODO: change back to 1500 when testing done
+    breakDuration: 3, // TODO: change back to 300 when testing done
+    sessionTimeRemaining: 5, // TODO: change back to 1500 when testing done
+    breakTimeRemaining: 3, // TODO: change back to 300 when testing done
+    isSession: true,
+    timerOn: false,
+    sessionNumber: 0
   }
 
   // Using property initializer syntax to avoid need to bind, since arrow functions don't create their own this context and use value of enclosing context instead. transform-class-properties Babel plugin necessary to use this syntax (included in Create React App). Refer to https://itnext.io/property-initializers-what-why-and-how-to-use-it-5615210474a3 for more details
@@ -82,24 +79,28 @@ class App extends Component {
   handleSessionComplete = () => {
     clearInterval(this.time);
     this.setState({
-      timerOn: false,
-      sessionNumber: this.state.sessionNumber + 1,
-      sessionTimeRemaining: this.state.sessionDuration,
-      breakTimeRemaining: this.state.breakDuration,
-      isSession: !this.state.isSession
-    });
-    console.log(this.state.sessionNumber);
+      sessionNumber: this.state.sessionNumber + 1
+    })
 
     if (this.state.sessionNumber === 4) {
       this.handlePomodoroCycleDone();
+    } else {
+      this.setState({
+        timerOn: false,
+        sessionTimeRemaining: this.state.sessionDuration,
+        breakTimeRemaining: this.state.breakDuration,
+        isSession: !this.state.isSession
+      });
     }
   }
 
   handlePomodoroCycleDone = () => {
     // TODO: Display message in modal
     console.log('Great work! You finished a pomodoro cycle (four sessions). Time to relax.')
+    // Changed back to default values
     this.setState({
-      sessionNumber: 0,
+      isSession: true,
+      timerOn: false,
       sessionDuration: 5, // TODO: change back to 1500
       breakDuration: 3, // TODO: change back to 300 when testing done
       sessionTimeRemaining: 5, // TODO: change back to 1500
@@ -166,7 +167,7 @@ class App extends Component {
         sessionTimeRemaining={this.state.sessionTimeRemaining}
         breakTimeRemaining={this.state.breakTimeRemaining}
         timerOn={this.state.timerOn}
-        sessionNumber={this.sessionNumber}
+        sessionNumber={this.state.sessionNumber}
 
         isSession={this.state.isSession}
 
@@ -174,6 +175,7 @@ class App extends Component {
         pauseTimer={this.pauseTimer}
         resetTimer={this.resetTimer}
       />
+
     );
   };
 }

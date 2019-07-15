@@ -1,51 +1,68 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import React from 'react';
 
-const PomodoroIcons = (props) => (
-  <div>
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-1a session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-2 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-3 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-4 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-1 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-2 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-3 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-4 session-checkbox"
-    />
-  </div>
-);
+const PomodoroIcons = props => {
+
+  return (
+    <div>
+      {/* If session number is 0, display unchecked circle icon, if any other session number, display checked circle icon */}
+      {props.sessionNumber === 0 ?
+        <FontAwesomeIcon
+          icon={faCircle}
+          size="2x"
+          className="session-checkbox"
+        /> :
+        <FontAwesomeIcon
+          icon={faCheckCircle}
+          size="2x"
+          className="session-checkbox"
+        />
+      }
+
+      {/* If session number is 0 or 1, display unchecked circle icon, if any other session number, display checked circle icon */}
+      {props.sessionNumber < 2 ?
+        <FontAwesomeIcon
+          icon={faCircle}
+          size="2x"
+          className="session-checkbox"
+        /> :
+        <FontAwesomeIcon
+          icon={faCheckCircle}
+          size="2x"
+          className="session-checkbox"
+        />
+      }
+
+      {props.sessionNumber < 3 ?
+        <FontAwesomeIcon
+          icon={faCircle}
+          size="2x"
+          className="session-checkbox"
+        /> :
+        <FontAwesomeIcon
+          icon={faCheckCircle}
+          size="2x"
+          className="session-checkbox"
+        />
+      }
+
+      {props.sessionNumber < 4 ?
+        <FontAwesomeIcon
+          icon={faCircle}
+          size="2x"
+          className="session-checkbox"
+        /> :
+        <FontAwesomeIcon
+          icon={faCheckCircle}
+          size="2x"
+          className="session-checkbox"
+        />
+      }
+    </div>
+  );
+
+};
 
 export default PomodoroIcons;
