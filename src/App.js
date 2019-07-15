@@ -6,9 +6,9 @@ class App extends Component {
     super();
 
     this.state = {
-      sessionDuration: 1500,
+      sessionDuration: 5, // TODO: change back to 1500 when testing done
       breakDuration: 300,
-      timeRemaining: 1, // TODO: change back to 1500 when testing done
+      timeRemaining: 5, // TODO: change back to 1500 when testing done
       timerOn: false,
       sessionNumber: 0
     };
@@ -61,22 +61,25 @@ class App extends Component {
         timeRemaining: this.state.timeRemaining - 1
       });
       if (this.state.timeRemaining === 0) {
-        clearInterval(this.time);
-        this.setState({
-          timerOn: false,
-          sessionNumber: this.state.sessionNumber + 1
-        });
-        this.handleSessionComplete()
+        this.handleSessionComplete();
       }
     }, 1000);
   }
 
   handleSessionComplete = () => {
-    // Figure out how to display check icon and hide circle icon
-    // If session number is 4, congratulate user; done with pomodoro cycle.
-    // Otherwise, set time remaining to break duration, start another setInterval, set stimerOn state back to true... at the end, trigger startTimer?
+    clearInterval(this.time);
+    this.setState({
+      timerOn: false,
+      sessionNumber: this.state.sessionNumber + 1,
+      timeRemaining: this.state.sessionDuration
+    });
+    console.log(this.state.sessionNumber);
+
+
     if (this.state.sessionNumber === 4) {
-      alert('Pomodoro cycle complete!');
+      this.setState({
+        sessionNumber: 0
+      });
     }
   }
 
@@ -84,7 +87,7 @@ class App extends Component {
 
   startTimer = () => {
     this.setState({
-      timerOn: true
+      timerOn: true,
     });
 
     this.manageSession();
@@ -104,9 +107,9 @@ class App extends Component {
     clearInterval(this.time);
     this.setState({
       timerOn: false,
-      sessionDuration: 1500,
+      sessionDuration: 5, // TODO: change back to 1500
       breakDuration: 300,
-      timeRemaining: 1500
+      timeRemaining: 5 // TODO: change back to 1500
     });
   }
 
@@ -123,6 +126,7 @@ class App extends Component {
 
         timeRemaining={this.state.timeRemaining}
         timerOn={this.state.timerOn}
+        sessionNumber={this.sessionNumber}
 
         startTimer={this.startTimer}
         pauseTimer={this.pauseTimer}

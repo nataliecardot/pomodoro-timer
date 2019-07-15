@@ -108,15 +108,45 @@ const Timer = (props) => (
   {/* NUMBER OF POMODOROS (SESSIONS) COMPLETED */}
   <div>
     {/* TODO: display 4 empty circles, replace each with a checked one after session is completed, until 4th session ends */}
+      <FontAwesomeIcon
+      icon={faCircle}
+      size="2x"
+      className="pomodoro-unchecked-1 session-checkbox"
+    />
     <FontAwesomeIcon
       icon={faCircle}
       size="2x"
-      className="session-checkbox"
+      className="pomodoro-unchecked-2 session-checkbox"
+    />
+    <FontAwesomeIcon
+      icon={faCircle}
+      size="2x"
+      className="pomodoro-unchecked-3 session-checkbox"
+    />
+    <FontAwesomeIcon
+      icon={faCircle}
+      size="2x"
+      className="pomodoro-unchecked-4 session-checkbox"
     />
     <FontAwesomeIcon
       icon={faCheckCircle}
       size="2x"
-      className="session-checkbox"
+      className="pomodoro-checked-1 session-checkbox"
+    />
+    <FontAwesomeIcon
+      icon={faCheckCircle}
+      size="2x"
+      className="pomodoro-checked-2 session-checkbox"
+    />
+    <FontAwesomeIcon
+      icon={faCheckCircle}
+      size="2x"
+      className="pomodoro-checked-3 session-checkbox"
+    />
+    <FontAwesomeIcon
+      icon={faCheckCircle}
+      size="2x"
+      className="pomodoro-checked-4 session-checkbox"
     />
   </div>
 

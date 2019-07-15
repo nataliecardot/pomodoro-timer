@@ -84,3 +84,7 @@ body {
   margin: 30px 5px;
   color: red;
 }
+
+.pomodoro-checked-1, .pomodoro-checked-2, .pomodoro-checked-3, .pomodoro-checked-4 {
+  display: none;
+}
