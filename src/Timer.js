@@ -28,7 +28,8 @@ const Timer = (props) => (
           size="3x"
         />
 
-        <p className="duration" >{props.breakDuration / 60}</p>
+        {/* TODO: divide by 60 again when testing complete */}
+        <p className="duration" >{props.breakDuration}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown} onClick={props.decreaseBreakDuration}
@@ -55,7 +56,8 @@ const Timer = (props) => (
           size="3x"
         />
 
-        <p className="duration" >{props.sessionDuration / 60}</p>
+        {/* TODO: divide by 60 again when testing complete */}
+        <p className="duration" >{props.sessionDuration}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown}
@@ -70,7 +72,9 @@ const Timer = (props) => (
   </div> {/* End duration-controls */}
 
   {/* TIME REMAINING */}
-  <p className="time-remaining">{TimeFormat.fromS(props.timeRemaining)}</p>
+  <p className="time-remaining">
+    {props.isSession ? TimeFormat.fromS(props.sessionTimeRemaining) : TimeFormat.fromS(props.breakTimeRemaining)}
+  </p>
 
   {/* PLAY, PAUSE, RESTART BUTTONS */}
   <div className="bottom-btns">
@@ -108,11 +112,7 @@ const Timer = (props) => (
   {/* NUMBER OF POMODOROS (SESSIONS) COMPLETED */}
   <div>
     {/* TODO: display 4 empty circles, replace each with a checked one after session is completed, until 4th session ends */}
-      <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-1 session-checkbox"
-    />
+
     <FontAwesomeIcon
       icon={faCircle}
       size="2x"

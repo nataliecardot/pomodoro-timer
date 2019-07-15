@@ -7,8 +7,10 @@ class App extends Component {
 
     this.state = {
       sessionDuration: 5, // TODO: change back to 1500 when testing done
-      breakDuration: 300,
-      timeRemaining: 5, // TODO: change back to 1500 when testing done
+      breakDuration: 3, // TODO: change back to 300 when testing done
+      sessionTimeRemaining: 5, // TODO: change back to 1500 when testing done
+      breakTimeRemaining: 3, // TODO: change back to 300 when testing done
+      isSession: true,
       timerOn: false,
       sessionNumber: 0
     };
@@ -42,7 +44,7 @@ class App extends Component {
     } else {
       this.setState({
         sessionDuration: this.state.sessionDuration - 60,
-        timeRemaining: this.state.timeRemaining - 60
+        sessionTimeRemaining: this.state.sessionTimeRemaining - 60
       });
     }
   }
@@ -50,17 +52,28 @@ class App extends Component {
   increaseSessionDuration = () => {
     this.setState({
       sessionDuration: this.state.sessionDuration + 60,
-      timeRemaining: this.state.timeRemaining + 60
+      sessionTimeRemaining: this.state.sessionTimeRemaining + 60
     });
   }
 
-  manageSession = () => {
-    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed timeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
+  manageBreak = () => {
     this.time = setInterval(() => {
       this.setState({
-        timeRemaining: this.state.timeRemaining - 1
+        breakTimeRemaining: this.state.breakTimeRemaining - 1
       });
-      if (this.state.timeRemaining === 0) {
+      if (this.state.breakTimeRemaining === 0) {
+        this.handleBreakComplete();
+      }
+    }, 1000);
+  }
+
+  manageSession = () => {
+    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed sessionTimeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
+    this.time = setInterval(() => {
+      this.setState({
+        sessionTimeRemaining: this.state.sessionTimeRemaining - 1
+      });
+      if (this.state.sessionTimeRemaining === 0) {
         this.handleSessionComplete();
       }
     }, 1000);
@@ -71,16 +84,36 @@ class App extends Component {
     this.setState({
       timerOn: false,
       sessionNumber: this.state.sessionNumber + 1,
-      timeRemaining: this.state.sessionDuration
+      sessionTimeRemaining: this.state.sessionDuration,
+      breakTimeRemaining: this.state.breakDuration,
+      isSession: !this.state.isSession
     });
     console.log(this.state.sessionNumber);
 
-
     if (this.state.sessionNumber === 4) {
-      this.setState({
-        sessionNumber: 0
-      });
+      this.handlePomodoroCycleDone();
     }
+  }
+
+  handlePomodoroCycleDone = () => {
+    // TODO: Display message in modal
+    console.log('Great work! You finished a pomodoro cycle (four sessions). Time to relax.')
+    this.setState({
+      sessionNumber: 0,
+      sessionDuration: 5, // TODO: change back to 1500
+      breakDuration: 3, // TODO: change back to 300 when testing done
+      sessionTimeRemaining: 5, // TODO: change back to 1500
+    });
+  }
+
+  handleBreakComplete = () => {
+    clearInterval(this.time);
+    this.setState({
+      timerOn: false,
+      sessionTimeRemaining: this.state.sessionDuration,
+      breakTimeRemaining: this.state.breakDuration,
+      isSession: !this.state.isSession
+    });
   }
 
   // PLAY, PAUSE, RESTART BUTTONS
@@ -90,7 +123,11 @@ class App extends Component {
       timerOn: true,
     });
 
-    this.manageSession();
+    if (this.state.isSession) {
+      this.manageSession();
+    } else {
+      this.manageBreak();
+    }
   }
 
   pauseTimer = () => {
@@ -104,12 +141,14 @@ class App extends Component {
 
   resetTimer = () => {
   // Stops setInterval's calling its (setState) callback every 1000 ms
+  // TODO: Display 4 unchecked circle icons again
     clearInterval(this.time);
     this.setState({
       timerOn: false,
       sessionDuration: 5, // TODO: change back to 1500
-      breakDuration: 300,
-      timeRemaining: 5 // TODO: change back to 1500
+      breakDuration: 3, // TODO: change back to 300 when testing done
+      sessionTimeRemaining: 5, // TODO: change back to 1500
+      breakTimeRemaining: 3 // TODO: change back to 300 when testing done
     });
   }
 
@@ -124,9 +163,12 @@ class App extends Component {
         decreaseSessionDuration={this.decreaseSessionDuration}
         increaseSessionDuration={this.increaseSessionDuration}
 
-        timeRemaining={this.state.timeRemaining}
+        sessionTimeRemaining={this.state.sessionTimeRemaining}
+        breakTimeRemaining={this.state.breakTimeRemaining}
         timerOn={this.state.timerOn}
         sessionNumber={this.sessionNumber}
+
+        isSession={this.state.isSession}
 
         startTimer={this.startTimer}
         pauseTimer={this.pauseTimer}
