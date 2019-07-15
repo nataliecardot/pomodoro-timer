@@ -1,12 +1,11 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import React from 'react';
+import PomodoroIcons from './PomodoroIcons';
 const TimeFormat = require('hh-mm-ss');
 
 const Timer = (props) => (
@@ -109,47 +108,7 @@ const Timer = (props) => (
 
   </div> {/* End bottom-btns */}
 
-  {/* NUMBER OF POMODOROS (SESSIONS) COMPLETED */}
-  <div>
-    {/* TODO: display 4 empty circles, replace each with a checked one after session is completed, until 4th session ends */}
-
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-2 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-3 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCircle}
-      size="2x"
-      className="pomodoro-unchecked-4 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-1 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-2 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-3 session-checkbox"
-    />
-    <FontAwesomeIcon
-      icon={faCheckCircle}
-      size="2x"
-      className="pomodoro-checked-4 session-checkbox"
-    />
-  </div>
-
+  <PomodoroIcons />
 </div>
 
 );
