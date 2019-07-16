@@ -13,7 +13,7 @@ const BottomButtons = (props) => (
         onClick={props.startTimer}
         icon={faPlay}
         className="btn bottom-btn"
-        size="4x"
+        size="3x"
       />
     </div>
 
@@ -23,7 +23,7 @@ const BottomButtons = (props) => (
         onClick={props.pauseTimer}
         icon={faPause}
         className="btn bottom-btn"
-        size="4x"
+        size="3x"
       />
     </div>
 
@@ -32,7 +32,7 @@ const BottomButtons = (props) => (
       onClick={props.resetTimer}
       icon={faUndo}
       className="btn bottom-btn"
-      size="4x"
+      size="3x"
     />
 
   </div>
