@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
+import chime from './chime.mp3'
+
+class Alarm {
+  constructor(source) {
+    this.sound = new Audio(source);
+  }
+  playSound() {
+    // Returns promise; see https://developers.google.com/web/updates/2016/03/play-returns-promise
+    return this.sound.play();
+  }
+}
+
+const alarm = new Alarm(chime);
 
 class App extends Component {
-  // Class property syntax allows you to remove constructor when just being used to initialize state
-  state = {
+constructor() {
+  super();
+
+  this.state = {
     sessionDuration: 5, // TODO: change back to 1500 when testing done
     breakDuration: 3, // TODO: change back to 300 when testing done
     sessionTimeRemaining: 5, // TODO: change back to 1500 when testing done
@@ -12,6 +27,8 @@ class App extends Component {
     timerOn: false,
     sessionNumber: 0
   }
+  this.alarm = alarm;
+}
 
   // Using property initializer syntax to avoid need to bind, since arrow functions don't create their own this context and use value of enclosing context instead. transform-class-properties Babel plugin necessary to use this syntax (included in Create React App). Refer to https://itnext.io/property-initializers-what-why-and-how-to-use-it-5615210474a3 for more details
 
@@ -76,8 +93,20 @@ class App extends Component {
     }, 1000);
   }
 
+  playAlarm() {
+    const playPromise = this.alarm.playSound();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        console.log('Alarm audio playback started.');
+      }).catch((err) => {
+        console.log(`Alarm audio playback error: ${err.message}`);
+      });
+    }
+  }
+
   handleSessionComplete = () => {
     clearInterval(this.time);
+    this.playAlarm();
     this.setState({
       sessionNumber: this.state.sessionNumber + 1
     })
@@ -109,6 +138,7 @@ class App extends Component {
 
   handleBreakComplete = () => {
     clearInterval(this.time);
+    this.playAlarm();
     this.setState({
       timerOn: false,
       sessionTimeRemaining: this.state.sessionDuration,
