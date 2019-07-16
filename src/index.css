@@ -86,3 +86,10 @@ body {
   margin: 30px 5px;
   color: #c63c62;
 }
+
+/* Smartphones */
+@media screen and (max-width: 767px) {
+  .time-remaining {
+    font-size: 7rem;
+  }
+}
