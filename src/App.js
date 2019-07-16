@@ -149,7 +149,8 @@ class App extends Component {
       sessionDuration: 5, // TODO: change back to 1500
       breakDuration: 3, // TODO: change back to 300 when testing done
       sessionTimeRemaining: 5, // TODO: change back to 1500
-      breakTimeRemaining: 3 // TODO: change back to 300 when testing done
+      breakTimeRemaining: 3, // TODO: change back to 300 when testing done
+      sessionNumber: 0
     });
   }
 
