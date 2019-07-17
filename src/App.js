@@ -27,7 +27,8 @@ constructor() {
     isSession: true,
     timerOn: false,
     sessionNumber: 0,
-    open: true // Modal informing user pomodoro cycle complete
+    open: true, // Modal informing user pomodoro cycle complete
+    volumeOn: true
   }
   this.alarm = alarm;
 }
@@ -116,7 +117,9 @@ constructor() {
 
   handleSessionComplete = () => {
     clearInterval(this.time);
-    this.playAlarm();
+    if (this.state.volumeOn) {
+      this.playAlarm();
+    }
     this.setState({
       sessionNumber: this.state.sessionNumber + 1
     })
@@ -147,7 +150,9 @@ constructor() {
 
   handleBreakComplete = () => {
     clearInterval(this.time);
-    this.playAlarm();
+    if (this.state.volumeOn) {
+      this.playAlarm();
+    }
     this.setState({
       timerOn: false,
       sessionTimeRemaining: this.state.sessionDuration,
@@ -191,6 +196,12 @@ constructor() {
     });
   }
 
+  toggleVolume = () => {
+    this.setState({
+      volumeOn: !this.state.volumeOn
+    })
+  }
+
   render() {
     return (
       <Timer
@@ -216,6 +227,8 @@ constructor() {
         open={this.state.open}
         onOpenModal={this.onOpenModal}
         onCloseModal={this.onCloseModal}
+        volumeOn={this.state.volumeOn}
+        toggleVolume={this.toggleVolume}
       />
 
     );

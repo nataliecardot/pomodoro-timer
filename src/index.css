@@ -72,7 +72,7 @@ body {
   cursor: pointer;
 }
 
-/* Used for toggling pause/play buttons */
+/* Used for toggling buttons */
 .hidden {
   display: none;
 }

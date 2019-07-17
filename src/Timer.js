@@ -30,6 +30,8 @@ const Timer = props => (
     startTimer={props.startTimer}
     pauseTimer={props.pauseTimer}
     resetTimer={props.resetTimer}
+    volumeOn={props.volumeOn}
+    toggleVolume={props.toggleVolume}
   />
 
   <PomodoroIcons sessionNumber={props.sessionNumber} />
