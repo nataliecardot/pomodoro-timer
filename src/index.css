@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Unna&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -40,6 +42,7 @@ body {
   display: flex;
 }
 
+/* "Break Length"/"Session Length" text */
 .duration-label {
   text-align: center;
   font-weight: 500;
@@ -48,13 +51,12 @@ body {
 }
 
 .duration-change-btn {
-  margin: 7px 15px 0 15px;
+  margin: 13px 15px 0 15px;
 }
 
 /* Session and break duration text */
 .duration {
-  margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -88,6 +90,7 @@ body {
 }
 
 .time-remaining {
+  font-family: "Unna", serif;
   font-size: 9rem;
   font-weight: bold;
   margin: 2rem 0;

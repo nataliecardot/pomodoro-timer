@@ -9,12 +9,12 @@ const PomodoroIcons = props => (
     {props.sessionNumber === 0 ?
       <FontAwesomeIcon
         icon={faCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       /> :
       <FontAwesomeIcon
         icon={faCheckCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       />
     }
@@ -23,12 +23,12 @@ const PomodoroIcons = props => (
     {props.sessionNumber < 2 ?
       <FontAwesomeIcon
         icon={faCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       /> :
       <FontAwesomeIcon
         icon={faCheckCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       />
     }
@@ -36,12 +36,12 @@ const PomodoroIcons = props => (
     {props.sessionNumber < 3 ?
       <FontAwesomeIcon
         icon={faCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       /> :
       <FontAwesomeIcon
         icon={faCheckCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       />
     }
@@ -49,12 +49,12 @@ const PomodoroIcons = props => (
     {props.sessionNumber < 4 ?
       <FontAwesomeIcon
         icon={faCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       /> :
       <FontAwesomeIcon
         icon={faCheckCircle}
-        size="2x"
+        size="3x"
         className="session-checkbox"
       />
     }
