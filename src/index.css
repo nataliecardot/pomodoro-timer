@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Unna&display=swap');
 
 html, body {
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
 }
 
 body {
@@ -127,7 +126,7 @@ body {
   }
 
   .session-checkbox {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
 }
 
