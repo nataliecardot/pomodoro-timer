@@ -34,8 +34,17 @@ const Timer = props => (
 
   <PomodoroIcons sessionNumber={props.sessionNumber} />
 
-  <Modal open={props.open} onClose={props.onCloseModal} center>
-    <p>Great work! You finished a pomodoro cycle (four sessions). Time to take a long break (15–30 minutes). When you're ready to begin another cycle, just click restart.</p>
+  <Modal
+    modalId="modal"
+    open={props.open}
+    onClose={props.onCloseModal}
+    center
+    className="modal"
+  >
+    <div className="modal-text">
+      <p>You finished a pomodoro cycle—great work!</p>
+      <p>Time to take a long break (15–30 minutes). When you're ready to begin another cycle, just click restart. (Or come back another day.)</p>
+    </div>
   </Modal>
 </div>
 
