@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32cbfaab58c647440a2d3b897d80aba9",
+    "revision": "06f94ecef0a8a3f53f12ee49ca63c0d9",
     "url": "/pomodoro-timer/index.html"
   },
   {
-    "revision": "101f04ce45ccc162ee22",
-    "url": "/pomodoro-timer/static/css/main.396c56b1.chunk.css"
+    "revision": "813322630c7d378d7977",
+    "url": "/pomodoro-timer/static/css/main.19fcbc79.chunk.css"
   },
   {
     "revision": "0d520706ce932bead731",
     "url": "/pomodoro-timer/static/js/2.70fb297e.chunk.js"
   },
   {
-    "revision": "101f04ce45ccc162ee22",
+    "revision": "813322630c7d378d7977",
     "url": "/pomodoro-timer/static/js/main.a830764d.chunk.js"
   },
   {
