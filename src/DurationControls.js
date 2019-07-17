@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+const TimeFormat = require('hh-mm-ss');
 
 const DurationControls = props => (
   <div className="duration-controls">
@@ -20,7 +21,7 @@ const DurationControls = props => (
         />
 
         {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration" >{props.breakDuration}</p>
+        <p className="duration" >{TimeFormat.fromS(props.breakDuration)}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown} onClick={props.decreaseBreakDuration}
@@ -48,7 +49,7 @@ const DurationControls = props => (
         />
 
         {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration" >{props.sessionDuration}</p>
+        <p className="duration" >{TimeFormat.fromS(props.sessionDuration)}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown}
