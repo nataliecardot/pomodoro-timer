@@ -20,14 +20,14 @@ constructor() {
   super();
 
   this.state = {
-    sessionDuration: 5, // TODO: change back to 1500 when testing done
-    breakDuration: 3, // TODO: change back to 300 when testing done
-    sessionTimeRemaining: 5, // TODO: change back to 1500 when testing done
-    breakTimeRemaining: 3, // TODO: change back to 300 when testing done
+    sessionDuration: 1500,
+    breakDuration: 300,
+    sessionTimeRemaining: 1500,
+    breakTimeRemaining: 300,
     isSession: true,
     timerOn: false,
     sessionNumber: 0,
-    open: true, // Modal informing user pomodoro cycle complete
+    open: false, // Modal informing user pomodoro cycle complete
     volumeOn: true
   }
   this.alarm = alarm;
@@ -142,9 +142,9 @@ constructor() {
     this.setState({
       isSession: true,
       timerOn: false,
-      sessionDuration: 5, // TODO: change back to 1500
-      breakDuration: 3, // TODO: change back to 300 when testing done
-      sessionTimeRemaining: 5, // TODO: change back to 1500
+      sessionDuration: 1500,
+      breakDuration: 300,
+      sessionTimeRemaining: 1500,
     });
   }
 
@@ -188,10 +188,10 @@ constructor() {
     clearInterval(this.time);
     this.setState({
       timerOn: false,
-      sessionDuration: 5, // TODO: change back to 1500
-      breakDuration: 3, // TODO: change back to 300 when testing done
-      sessionTimeRemaining: 5, // TODO: change back to 1500
-      breakTimeRemaining: 3, // TODO: change back to 300 when testing done
+      sessionDuration: 1500,
+      breakDuration: 300,
+      sessionTimeRemaining: 1500,
+      breakTimeRemaining: 300,
       sessionNumber: 0
     });
   }
