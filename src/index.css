@@ -140,6 +140,10 @@ body {
   .modal-text {
     width: 75%;
   }
+
+  .session-checkbox {
+    margin-bottom: 3rem;
+  }
 }
 
 /* Large screens */
