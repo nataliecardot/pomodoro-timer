@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
-import chime from './chime.mp3'
+import chime from './chime.mp3';
 
 class Alarm {
   constructor(source) {
     this.sound = new Audio(source);
   }
+
   playSound() {
     // Returns promise; see https://developers.google.com/web/updates/2016/03/play-returns-promise
     return this.sound.play();
@@ -25,10 +26,19 @@ constructor() {
     breakTimeRemaining: 3, // TODO: change back to 300 when testing done
     isSession: true,
     timerOn: false,
-    sessionNumber: 0
+    sessionNumber: 0,
+    open: true // Modal informing user pomodoro cycle complete
   }
   this.alarm = alarm;
 }
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   // Using property initializer syntax to avoid need to bind, since arrow functions don't create their own this context and use value of enclosing context instead. transform-class-properties Babel plugin necessary to use this syntax (included in Create React App). Refer to https://itnext.io/property-initializers-what-why-and-how-to-use-it-5615210474a3 for more details
 
@@ -124,8 +134,7 @@ constructor() {
   }
 
   handlePomodoroCycleDone = () => {
-    // TODO: Display message in modal
-    console.log('Great work! You finished a pomodoro cycle (four sessions). Time to relax.')
+    this.onOpenModal();
     // Changed back to default values
     this.setState({
       isSession: true,
@@ -171,8 +180,6 @@ constructor() {
   }
 
   resetTimer = () => {
-  // Stops setInterval's calling its (setState) callback every 1000 ms
-  // TODO: Display 4 unchecked circle icons again
     clearInterval(this.time);
     this.setState({
       timerOn: false,
@@ -205,6 +212,10 @@ constructor() {
         startTimer={this.startTimer}
         pauseTimer={this.pauseTimer}
         resetTimer={this.resetTimer}
+
+        open={this.state.open}
+        onOpenModal={this.onOpenModal}
+        onCloseModal={this.onCloseModal}
       />
 
     );

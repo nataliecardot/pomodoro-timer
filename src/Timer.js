@@ -1,4 +1,5 @@
 import BottomButtons from './BottomButtons';
+import Modal from 'react-responsive-modal';
 import React from 'react';
 import PomodoroIcons from './PomodoroIcons';
 import DurationControls from './DurationControls';
@@ -32,6 +33,10 @@ const Timer = props => (
   />
 
   <PomodoroIcons sessionNumber={props.sessionNumber} />
+
+  <Modal open={props.open} onClose={props.onCloseModal} center>
+    <p>Great work! You finished a pomodoro cycle (four sessions). Time to take a long break (15–30 minutes). When you're ready to begin another cycle, just click restart.</p>
+  </Modal>
 </div>
 
 );
