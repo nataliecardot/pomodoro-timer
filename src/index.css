@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Unna&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -124,10 +128,6 @@ body {
 
   .modal-text {
     font-size: 0.9rem;
-  }
-
-  .session-checkbox {
-    margin-bottom: 6rem;
   }
 }
 
