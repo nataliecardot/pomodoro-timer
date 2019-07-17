@@ -48,7 +48,6 @@ const Timer = props => (
       <p>Time to take a long break (15–30 minutes). When you're ready to begin another cycle, just click restart. (Or come back another day.)</p>
     </div>
   </Modal>
-  test
 </div>
 
 );
