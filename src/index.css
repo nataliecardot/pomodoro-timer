@@ -129,6 +129,10 @@ body {
   .modal-text {
     font-size: 0.9rem;
   }
+
+  .session-checkbox {
+    margin-bottom: 2.5rem;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
