@@ -95,7 +95,6 @@ body {
 .bottom-btns {
   /* To override display flex direction column of parent */
   display: flex;
-  margin-top: 1rem;
 }
 
 .bottom-btn {
@@ -111,7 +110,7 @@ body {
 }
 
 .session-checkbox {
-  margin: 30px 5px;
+  margin: 2.5rem 5px;
   color: #c63c62;
 }
 
@@ -119,6 +118,10 @@ body {
 
 /* Smartphones */
 @media screen and (max-width: 767px) {
+  .bottom-btns {
+    margin-top: 1rem;
+  }
+
   .between-duration-controls {
     margin: 0 10px;
   }
