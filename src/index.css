@@ -95,6 +95,7 @@ body {
 .bottom-btns {
   /* To override display flex direction column of parent */
   display: flex;
+  margin-top: 1rem;
 }
 
 .bottom-btn {
@@ -135,6 +136,7 @@ body {
   }
 
   .session-checkbox {
+    margin-top: 4rem;
     margin-bottom: 4rem;
   }
 }
