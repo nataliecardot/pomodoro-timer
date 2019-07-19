@@ -16,7 +16,7 @@ const DurationControls = props => (
         <FontAwesomeIcon
           icon={faArrowUp}
           onClick={props.increaseBreakDuration}
-          className="duration-change-btn"
+          className="btn duration-change-btn"
           size="2x"
         />
 
@@ -25,7 +25,7 @@ const DurationControls = props => (
 
         <FontAwesomeIcon
           icon={faArrowDown} onClick={props.decreaseBreakDuration}
-          className="duration-change-btn"
+          className="btn duration-change-btn"
           size="2x"
         />
       </div> {/* End duration-control-group-without-label */}
@@ -44,7 +44,7 @@ const DurationControls = props => (
         <FontAwesomeIcon
           icon={faArrowUp}
           onClick={props.increaseSessionDuration}
-          className="duration-change-btn"
+          className="btn duration-change-btn"
           size="2x"
         />
 
@@ -54,7 +54,7 @@ const DurationControls = props => (
         <FontAwesomeIcon
           icon={faArrowDown}
           onClick={props.decreaseSessionDuration}
-          className="duration-change-btn"
+          className="btn duration-change-btn"
           size="2x"
         />
       </div> {/* End duration-control-group-without-label */}

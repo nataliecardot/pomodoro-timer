@@ -18,6 +18,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btn:hover {
+  color: #1a1a1a;
+  transition: color 0.5s;
+}
+
 #modal {
   border-radius: 10px;
 }
