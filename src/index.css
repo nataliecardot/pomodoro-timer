@@ -20,7 +20,7 @@ body {
 
 .btn:hover {
   color: #1a1a1a;
-  transition: color 0.5s;
+  transition: 0.5s;
 }
 
 #modal {
