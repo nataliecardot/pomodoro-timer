@@ -9,6 +9,7 @@ An app for managing time using the pomodoro technique.
 * Session completion indicated with checkboxes
 * An alarm sound that you can toggle on/off
 * You can play, pause, and reset
+* Toggle pause/play on spacebar press
 * A modal is opened at the end of four sessions
 
 ### Get Started

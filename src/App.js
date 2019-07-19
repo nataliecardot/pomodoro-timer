@@ -16,22 +16,22 @@ class Alarm {
 const alarm = new Alarm(chime);
 
 class App extends Component {
-constructor() {
-  super();
+  constructor() {
+    super();
 
-  this.state = {
-    sessionDuration: 1500,
-    breakDuration: 300,
-    sessionTimeRemaining: 1500,
-    breakTimeRemaining: 300,
-    isSession: true,
-    timerOn: false,
-    sessionNumber: 0,
-    open: false, // Modal informing user pomodoro cycle complete
-    volumeOn: true
+    this.state = {
+      sessionDuration: 1500,
+      breakDuration: 300,
+      sessionTimeRemaining: 1500,
+      breakTimeRemaining: 300,
+      isSession: true,
+      timerOn: false,
+      sessionNumber: 0,
+      open: false, // Modal informing user pomodoro cycle complete
+      volumeOn: true
+    }
+    this.alarm = alarm;
   }
-  this.alarm = alarm;
-}
 
   onOpenModal = () => {
     this.setState({ open: true });
@@ -200,6 +200,21 @@ constructor() {
     this.setState({
       volumeOn: !this.state.volumeOn
     })
+  }
+
+  spacebarHandler = (e) => {
+    if (e.keyCode === 32) {
+      this.state.timerOn ? this.pauseTimer() : this.startTimer();
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.spacebarHandler);
+  }
+
+  // Modern browsers remove event listeners on components when they're unmounted, but this is for added safety to prevent memory leaks. See https://stackoverflow.com/questions/53256662/react-why-should-i-remove-event-listeners
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.spacebarHandler);
   }
 
   render() {
