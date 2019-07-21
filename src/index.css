@@ -60,12 +60,13 @@ body {
 .duration-label {
   text-align: center;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: #626262;
+  margin-bottom: 0;
 }
 
 .duration-change-btn {
-  margin: 13px 15px 0 15px;
+  margin: 17px 15px 0 15px;
 }
 
 .duration-change-btn:hover {
@@ -74,7 +75,7 @@ body {
 
 /* Session and break duration text */
 .duration {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
