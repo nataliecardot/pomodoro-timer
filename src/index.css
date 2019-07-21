@@ -111,11 +111,12 @@ body {
   font-family: "Unna", serif;
   font-size: 9rem;
   font-weight: bold;
-  margin: 2rem 0;
+  margin: 1.5rem 0 2rem 0;
 }
 
 .session-checkbox {
-  margin: 2.5rem 5px;
+  /* margin: 2.5rem 5px; */
+  margin: 3rem 5px 2.5rem 5px;
   color: #c63c62;
 }
 
