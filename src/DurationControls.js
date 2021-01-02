@@ -4,14 +4,11 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 const TimeFormat = require('hh-mm-ss');
 
-const DurationControls = props => (
+const DurationControls = (props) => (
   <div className="duration-controls">
-
     {/* BREAK LENGTH CONTROL */}
     <div className="duration-control-group-with-label">
-
-      <p className="duration-label">Break<br />Length</p>
-
+      <p className="duration-label">Break</p>
       <div className="duration-control-group-without-label">
         <FontAwesomeIcon
           icon={faArrowUp}
@@ -21,25 +18,23 @@ const DurationControls = props => (
         />
 
         {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration" >{TimeFormat.fromS(props.breakDuration)}</p>
+        <p className="duration">{TimeFormat.fromS(props.breakDuration)}</p>
 
         <FontAwesomeIcon
-          icon={faArrowDown} onClick={props.decreaseBreakDuration}
+          icon={faArrowDown}
+          onClick={props.decreaseBreakDuration}
           className="btn duration-change-btn"
           size="2x"
         />
-      </div> {/* End duration-control-group-without-label */}
-
-    </div> {/* End duration-control-group-with-label */}
-
+      </div>{' '}
+      {/* End duration-control-group-without-label */}
+    </div>{' '}
+    {/* End duration-control-group-with-label */}
     {/* Just for adding space between break/session duration controls */}
     <span className="between-duration-controls" />
-
     {/* SESSION LENGTH CONTROL */}
     <div className="duration-control-group-with-label">
-
-      <p className="duration-label" >Session<br />Length</p>
-
+      <p className="duration-label">Session</p>
       <div className="duration-control-group-without-label">
         <FontAwesomeIcon
           icon={faArrowUp}
@@ -49,7 +44,7 @@ const DurationControls = props => (
         />
 
         {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration" >{TimeFormat.fromS(props.sessionDuration)}</p>
+        <p className="duration">{TimeFormat.fromS(props.sessionDuration)}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown}
@@ -57,12 +52,11 @@ const DurationControls = props => (
           className="btn duration-change-btn"
           size="2x"
         />
-      </div> {/* End duration-control-group-without-label */}
-
-    </div> {/* End duration-control-group-with-label */}
-
+      </div>{' '}
+      {/* End duration-control-group-without-label */}
+    </div>{' '}
+    {/* End duration-control-group-with-label */}
   </div> // End duration-controls
-
 );
 
 export default DurationControls;

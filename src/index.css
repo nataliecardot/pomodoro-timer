@@ -1,25 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Unna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Nanum+Gothic&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fafafa;
 }
 
 .btn:hover {
-  color: #1a1a1a;
+  color: #0f0f0f;
   transition: 0.5s;
 }
 
@@ -61,7 +63,7 @@ body {
   text-align: center;
   font-weight: 500;
   letter-spacing: 1.5px;
-  color: #626262;
+  color: #130d0d;
   margin-bottom: 0;
 }
 
@@ -83,9 +85,8 @@ body {
   margin: 0 20px;
 }
 
-/* All buttons */
 .duration-change-btn {
-  color: #bfbfbf;
+  color: #616161;
 }
 
 /* All buttons */
@@ -105,12 +106,13 @@ body {
 
 .bottom-btn {
   margin: 15px;
-  color: #9e9e9e;
+  color: #616161;
 }
 
 .time-remaining {
-  font-family: "Unna", serif;
-  font-size: 9rem;
+  font-family: 'Fira Sans', serif;
+  font-size: 10rem;
+  letter-spacing: 10px;
   font-weight: bold;
   margin: 1.5rem 0 2rem 0;
 }
@@ -118,7 +120,7 @@ body {
 .session-checkbox {
   /* margin: 2.5rem 5px; */
   margin: 3rem 5px 2.5rem 5px;
-  color: #c63c62;
+  color: #f44336;
 }
 
 /* --------------- MEDIA QUERIES ----------------- */
