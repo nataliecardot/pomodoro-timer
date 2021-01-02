@@ -12,11 +12,9 @@ An app for managing time using the pomodoro technique.
 * Toggle pause/play on spacebar press
 * A modal is opened at the end of four sessions
 
-### Get Started
+View live [here](https://nataliecardot.com/pomodoro-timer/).
 
-View online at https://nataliecardot.com/pomodoro-timer/
-
-### View locally
+To view locally:
 1. Clone or download this repository
 2. Using a command line tool, navigate to the directory's location
 3. Run `npm install`, which installs all modules listed as dependencies in `package.json`.
