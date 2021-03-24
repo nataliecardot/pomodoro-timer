@@ -20,6 +20,11 @@ body {
   background: #fafafa;
 }
 
+p {
+  /* Disables text highlighting (without this, text is highlighted each time sessions duration changes) */
+  user-select: none;
+}
+
 .btn:hover {
   color: #0f0f0f;
   transition: 0.5s;
