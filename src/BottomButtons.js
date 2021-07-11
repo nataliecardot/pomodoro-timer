@@ -6,23 +6,29 @@ import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 import { faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-const BottomButtons = (props) => (
+const BottomButtons = ({
+  timerOn,
+  startTimer,
+  pauseTimer,
+  resetTimer,
+  toggleVolume,
+  volumeOn,
+}) => (
   <div className="bottom-btns">
-
-    <div className={props.timerOn ? 'hidden' : null}>
+    <div className={timerOn ? 'hidden' : null}>
       <FontAwesomeIcon
         role="button"
-        onClick={props.startTimer}
+        onClick={startTimer}
         icon={faPlay}
         className="btn bottom-btn"
         size="2x"
       />
     </div>
 
-    <div className={props.timerOn === false ? 'hidden' : null}>
+    <div className={timerOn === false ? 'hidden' : null}>
       <FontAwesomeIcon
         role="button"
-        onClick={props.pauseTimer}
+        onClick={pauseTimer}
         icon={faPause}
         className="btn bottom-btn"
         size="2x"
@@ -31,32 +37,31 @@ const BottomButtons = (props) => (
 
     <FontAwesomeIcon
       role="button"
-      onClick={props.resetTimer}
+      onClick={resetTimer}
       icon={faUndo}
       className="btn bottom-btn"
       size="2x"
     />
 
-    <div className={props.volumeOn ? null : 'hidden'}>
+    <div className={volumeOn ? null : 'hidden'}>
       <FontAwesomeIcon
         role="button"
-        onClick={props.toggleVolume}
+        onClick={toggleVolume}
         icon={faVolumeUp}
         className="btn bottom-btn"
         size="2x"
       />
     </div>
 
-    <div className={props.volumeOn ? 'hidden' : null}>
+    <div className={volumeOn ? 'hidden' : null}>
       <FontAwesomeIcon
         role="button"
-        onClick={props.toggleVolume}
+        onClick={toggleVolume}
         icon={faVolumeMute}
         className="btn bottom-btn"
         size="2x"
       />
     </div>
-
   </div>
 );
 

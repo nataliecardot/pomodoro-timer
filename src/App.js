@@ -22,14 +22,14 @@ class App extends Component {
     this.state = {
       sessionDuration: 1500,
       breakDuration: 300,
-      sessionTimeRemaining: 1500,
-      breakTimeRemaining: 300,
+      sessionTimeLeft: 1500,
+      breakTimeLeft: 300,
       isSession: true,
       timerOn: false,
       sessionNumber: 0,
       open: false, // Modal informing user pomodoro cycle complete
-      volumeOn: true
-    }
+      volumeOn: true,
+    };
     this.alarm = alarm;
   }
 
@@ -43,73 +43,75 @@ class App extends Component {
 
   // DURATION CHANGES
 
-  decreaseBreakDuration = () => {
+  decreaseBreak = () => {
     // Conditional statement prevents decrease when break is at 1 minute
     if (this.state.breakDuration === 60) {
       return undefined;
     } else {
       this.setState({
-        breakDuration: this.state.breakDuration - 60
+        breakDuration: this.state.breakDuration - 60,
       });
     }
-  }
+  };
 
-  increaseBreakDuration = () => {
+  increaseBreak = () => {
     this.setState({
-      breakDuration: this.state.breakDuration + 60
+      breakDuration: this.state.breakDuration + 60,
     });
-  }
+  };
 
-  decreaseSessionDuration = () => {
+  decreaseSession = () => {
     // Conditional statement prevents decrease when session is at 5 minutes
     if (this.state.sessionDuration === 300) {
       return undefined;
     } else {
       this.setState({
         sessionDuration: this.state.sessionDuration - 60,
-        sessionTimeRemaining: this.state.sessionTimeRemaining - 60
+        sessionTimeLeft: this.state.sessionTimeLeft - 60,
       });
     }
-  }
+  };
 
-  increaseSessionDuration = () => {
+  increaseSession = () => {
     this.setState({
       sessionDuration: this.state.sessionDuration + 60,
-      sessionTimeRemaining: this.state.sessionTimeRemaining + 60
+      sessionTimeLeft: this.state.sessionTimeLeft + 60,
     });
-  }
+  };
 
   manageBreak = () => {
     this.time = setInterval(() => {
       this.setState({
-        breakTimeRemaining: this.state.breakTimeRemaining - 1
+        breakTimeLeft: this.state.breakTimeLeft - 1,
       });
-      if (this.state.breakTimeRemaining === 0) {
+      if (this.state.breakTimeLeft === 0) {
         this.handleBreakComplete();
       }
     }, 1000);
-  }
+  };
 
   manageSession = () => {
-    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed sessionTimeRemaining. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
+    // Every 1,000 ms (1 second), subtract 1 (a single second) from displayed sessionTimeLeft. Assigned to this.time (scoped to entire class) in order to pass it to clearInterval() when pause button is clicked
     this.time = setInterval(() => {
       this.setState({
-        sessionTimeRemaining: this.state.sessionTimeRemaining - 1
+        sessionTimeLeft: this.state.sessionTimeLeft - 1,
       });
-      if (this.state.sessionTimeRemaining === 0) {
+      if (this.state.sessionTimeLeft === 0) {
         this.handleSessionComplete();
       }
     }, 1000);
-  }
+  };
 
   playAlarm() {
     const playPromise = this.alarm.playSound();
     if (playPromise !== undefined) {
-      playPromise.then(() => {
-        console.log('Alarm audio playback started.');
-      }).catch((err) => {
-        console.log(`Alarm audio playback error: ${err.message}`);
-      });
+      playPromise
+        // .then(() => {
+        //   console.log('Alarm audio playback started.');
+        // })
+        .catch((err) => {
+          console.log(`Alarm audio playback error: ${err.message}`);
+        });
     }
   }
 
@@ -119,20 +121,20 @@ class App extends Component {
       this.playAlarm();
     }
     this.setState({
-      sessionNumber: this.state.sessionNumber + 1
-    })
+      sessionNumber: this.state.sessionNumber + 1,
+    });
 
     if (this.state.sessionNumber === 4) {
       this.handlePomodoroCycleDone();
     } else {
       this.setState({
         timerOn: false,
-        sessionTimeRemaining: this.state.sessionDuration,
-        breakTimeRemaining: this.state.breakDuration,
-        isSession: !this.state.isSession
+        sessionTimeLeft: this.state.sessionDuration,
+        breakTimeLeft: this.state.breakDuration,
+        isSession: !this.state.isSession,
       });
     }
-  }
+  };
 
   handlePomodoroCycleDone = () => {
     this.onOpenModal();
@@ -142,9 +144,9 @@ class App extends Component {
       timerOn: false,
       sessionDuration: 1500,
       breakDuration: 300,
-      sessionTimeRemaining: 1500,
+      sessionTimeLeft: 1500,
     });
-  }
+  };
 
   handleBreakComplete = () => {
     clearInterval(this.time);
@@ -153,11 +155,11 @@ class App extends Component {
     }
     this.setState({
       timerOn: false,
-      sessionTimeRemaining: this.state.sessionDuration,
-      breakTimeRemaining: this.state.breakDuration,
-      isSession: !this.state.isSession
+      sessionTimeLeft: this.state.sessionDuration,
+      breakTimeLeft: this.state.breakDuration,
+      isSession: !this.state.isSession,
     });
-  }
+  };
 
   // PLAY, PAUSE, RESTART BUTTONS
 
@@ -171,16 +173,16 @@ class App extends Component {
     } else {
       this.manageBreak();
     }
-  }
+  };
 
   pauseTimer = () => {
     // Stops setInterval's calling its (setState) callback every 1000 ms
     clearInterval(this.time);
 
     this.setState({
-      timerOn: false
+      timerOn: false,
     });
-  }
+  };
 
   resetTimer = () => {
     clearInterval(this.time);
@@ -189,23 +191,23 @@ class App extends Component {
       isSession: true,
       sessionDuration: 1500,
       breakDuration: 300,
-      sessionTimeRemaining: 1500,
-      breakTimeRemaining: 300,
-      sessionNumber: 0
+      sessionTimeLeft: 1500,
+      breakTimeLeft: 300,
+      sessionNumber: 0,
     });
-  }
+  };
 
   toggleVolume = () => {
     this.setState({
-      volumeOn: !this.state.volumeOn
-    })
-  }
+      volumeOn: !this.state.volumeOn,
+    });
+  };
 
   spacebarHandler = (e) => {
     if (e.keyCode === 32) {
       this.state.timerOn ? this.pauseTimer() : this.startTimer();
     }
-  }
+  };
 
   componentDidMount() {
     document.addEventListener('keydown', this.spacebarHandler);
@@ -221,32 +223,26 @@ class App extends Component {
       <Timer
         breakDuration={this.state.breakDuration}
         sessionDuration={this.state.sessionDuration}
-
-        decreaseBreakDuration={this.decreaseBreakDuration}
-        increaseBreakDuration={this.increaseBreakDuration}
-        decreaseSessionDuration={this.decreaseSessionDuration}
-        increaseSessionDuration={this.increaseSessionDuration}
-
-        sessionTimeRemaining={this.state.sessionTimeRemaining}
-        breakTimeRemaining={this.state.breakTimeRemaining}
+        decreaseBreak={this.decreaseBreak}
+        increaseBreak={this.increaseBreak}
+        decreaseSession={this.decreaseSession}
+        increaseSession={this.increaseSession}
+        sessionTimeLeft={this.state.sessionTimeLeft}
+        breakTimeLeft={this.state.breakTimeLeft}
         timerOn={this.state.timerOn}
         sessionNumber={this.state.sessionNumber}
-
         isSession={this.state.isSession}
-
         startTimer={this.startTimer}
         pauseTimer={this.pauseTimer}
         resetTimer={this.resetTimer}
-
         open={this.state.open}
         onOpenModal={this.onOpenModal}
         onCloseModal={this.onCloseModal}
         volumeOn={this.state.volumeOn}
         toggleVolume={this.toggleVolume}
       />
-
     );
-  };
+  }
 }
 
 export default App;

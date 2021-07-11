@@ -4,7 +4,14 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 const TimeFormat = require('hh-mm-ss');
 
-const DurationControls = (props) => (
+const DurationControls = ({
+  breakDuration,
+  sessionDuration,
+  increaseBreak,
+  decreaseBreak,
+  increaseSession,
+  decreaseSession,
+}) => (
   <div className="duration-controls">
     {/* BREAK LENGTH CONTROL */}
     <div className="duration-control-group-with-label">
@@ -12,17 +19,16 @@ const DurationControls = (props) => (
       <div className="duration-control-group-without-label">
         <FontAwesomeIcon
           icon={faArrowUp}
-          onClick={props.increaseBreakDuration}
+          onClick={increaseBreak}
           className="btn duration-change-btn"
           size="2x"
         />
 
-        {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration">{TimeFormat.fromS(props.breakDuration)}</p>
+        <p className="duration">{TimeFormat.fromS(breakDuration)}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown}
-          onClick={props.decreaseBreakDuration}
+          onClick={decreaseBreak}
           className="btn duration-change-btn"
           size="2x"
         />
@@ -38,17 +44,16 @@ const DurationControls = (props) => (
       <div className="duration-control-group-without-label">
         <FontAwesomeIcon
           icon={faArrowUp}
-          onClick={props.increaseSessionDuration}
+          onClick={increaseSession}
           className="btn duration-change-btn"
           size="2x"
         />
 
-        {/* TODO: divide by 60 again when testing complete */}
-        <p className="duration">{TimeFormat.fromS(props.sessionDuration)}</p>
+        <p className="duration">{TimeFormat.fromS(sessionDuration)}</p>
 
         <FontAwesomeIcon
           icon={faArrowDown}
-          onClick={props.decreaseSessionDuration}
+          onClick={decreaseSession}
           className="btn duration-change-btn"
           size="2x"
         />
